@@ -15,13 +15,15 @@
         body {
             background-color: #222;
             margin: 0;
-            padding: 20px;
+            padding: 0; /* Removed padding for full mobile bleed */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
+            -webkit-font-smoothing: antialiased;
         }
         .resume-container {
-            width: 850px;
+            width: 100%;
+            max-width: 850px; /* Constrains width on desktop, full width on mobile */
             background-color: var(--obsidian);
             color: var(--steel-light);
             box-shadow: 0 15px 50px rgba(0,0,0,0.8);
@@ -42,11 +44,11 @@
             margin-right: 40px;
         }
         .headshot {
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            /* These CSS filters programmatically clean up and sharpen your photo */
+            /* Auto-enhancement filter */
             filter: contrast(1.15) brightness(1.05) saturate(1.1);
             border: 3px solid transparent;
             background: linear-gradient(to bottom right, var(--amber-light), var(--amber-dark)) border-box;
@@ -60,17 +62,18 @@
         }
         h1 {
             margin: 0 0 5px 0;
-            font-size: 38px;
+            font-size: 36px;
             color: #FFFFFF;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
         h2 {
             margin: 0;
-            font-size: 18px;
+            font-size: 16px;
             color: var(--amber-light);
             font-family: 'Courier New', Courier, monospace;
             letter-spacing: 1.5px;
+            line-height: 1.4;
         }
         .contact-info {
             margin-top: 15px;
@@ -78,21 +81,25 @@
             color: var(--steel);
             display: flex;
             gap: 20px;
+            flex-wrap: wrap;
         }
         /* Main Body Layout */
         .content {
             display: flex;
             padding: 0;
+            flex-direction: row; /* Default to side-by-side on desktop */
         }
         .left-column {
             width: 35%;
             background-color: #080C16;
             padding: 40px;
             border-right: 1px solid #16223F;
+            box-sizing: border-box;
         }
         .right-column {
             width: 65%;
             padding: 40px 50px;
+            box-sizing: border-box;
         }
         /* Typography & Elements */
         h3 {
@@ -106,7 +113,7 @@
             margin-bottom: 20px;
         }
         p, li {
-            font-size: 13px;
+            font-size: 14px; /* Slightly larger for readability */
             line-height: 1.6;
             color: var(--steel-light);
         }
@@ -115,22 +122,22 @@
             margin-bottom: 25px;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .job-title {
-            font-size: 15px;
+            font-size: 16px;
             color: #FFFFFF;
             font-weight: bold;
             margin: 0;
         }
         .company-name {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--amber-light);
-            margin: 2px 0 10px 0;
+            margin: 4px 0 10px 0;
             font-family: 'Courier New', Courier, monospace;
         }
         .job-block {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
         .cert-item {
             margin-bottom: 15px;
@@ -138,32 +145,67 @@
         .cert-name {
             color: #FFFFFF;
             font-weight: bold;
-            font-size: 13px;
+            font-size: 14px;
         }
         .cert-date {
             color: var(--steel);
-            font-size: 11px;
+            font-size: 12px;
             font-family: 'Courier New', Courier, monospace;
+            margin-top: 2px;
         }
-        /* Small Vector Graphic in bottom right */
-        .watermark {
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 300px;
-            height: 300px;
-            opacity: 0.03;
-            pointer-events: none;
+        
+        /* =========================================
+           MOBILE RESPONSIVE MEDIA QUERIES
+           ========================================= */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            .resume-container {
+                border-top: 4px solid var(--amber-light);
+            }
+            /* Stack the header, center the image */
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .headshot-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .contact-info {
+                justify-content: center;
+                flex-direction: column;
+                gap: 5px;
+            }
+            /* Stack columns vertically */
+            .content {
+                flex-direction: column;
+            }
+            /* Make both columns full width */
+            .left-column, .right-column {
+                width: 100%;
+                border-right: none;
+                padding: 30px 20px;
+            }
+            .left-column {
+                border-bottom: 1px solid #16223F;
+                /* Shift left column to bottom on mobile if preferred, 
+                   but usually keeping certs up top is fine. We will leave it as is. */
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="resume-container">
-    <svg class="watermark" viewBox="0 0 100 100">
-        <polygon points="50,10 10,90 90,90" fill="#FFFFFF"/>
-    </svg>
-
     <div class="header">
         <div class="headshot-container">
             <img src="headshot.jpg" alt="Jerry Montgomery" class="headshot">
@@ -194,54 +236,55 @@
 
             <div class="cert-item">
                 <div class="cert-name">ATSSA Traffic Control Supervisor (TCS)</div>
-                <div class="cert-date">Exp. [span_0](start_span)11/2028[span_0](end_span)</div>
+                <div class="cert-date">Exp. 11/2028</div>
             </div>
 
             <div class="cert-item">
                 <div class="cert-name">ACI Field Testing Technician</div>
-                <div class="cert-date">Exp. [span_1](start_span)10/2029[span_1](end_span)</div>
+                <div class="cert-date">Exp. 10/2029</div>
             </div>
 
             <div class="cert-item">
                 <div class="cert-name">ATTI Field Testing Technician</div>
-                <div class="cert-date">Exp. [span_2](start_span)11/2029[span_2](end_span)</div>
+                <div class="cert-date">Exp. 11/2029</div>
             </div>
 
             <div class="cert-item">
                 <div class="cert-name">Erosion Control Coordinator (ECC)</div>
-                <div class="cert-date">Exp. [span_3](start_span)11/2027[span_3](end_span)</div>
+                <div class="cert-date">Exp. 11/2027</div>
             </div>
 
             <div class="cert-item">
                 <div class="cert-name">OSHA 10-Hour Construction Safety</div>
-                [span_4](start_span)<div class="cert-date">Active[span_4](end_span)</div>
+                <div class="cert-date">Active</div>
             </div>
 
             <br><br>
             <h3>Education</h3>
             <div class="cert-item">
                 <div class="cert-name">BS, Civil Engineering</div>
-                [span_5](start_span)<div class="cert-date">University of Kentucky[span_5](end_span)</div>
+                <div class="cert-date">University of Kentucky</div>
             </div>
             <div class="cert-item">
                 <div class="cert-name">AS, Pre-Engineering</div>
-                [span_6](start_span)<div class="cert-date">Big Sandy Community & Technical College[span_6](end_span)</div>
+                <div class="cert-date">Big Sandy Community & Technical College</div>
             </div>
         </div>
 
         <div class="right-column">
             <h3>Executive Summary</h3>
-            [span_7](start_span)<p>Civil Engineer and Lead Structural Inspector with over 16 years of experience in heavy highway and bridge infrastructure[span_7](end_span). Leveraging 12 years of hands-on structural carpentry alongside extensive Construction Engineering & Inspection (CEI) management, bringing an unparalleled, "dirt-level" understanding of structural anatomy to in-service bridge inspections. [span_8](start_span)Expert in the evaluation, construction, and rehabilitation of complex concrete structures, including multi-span post-tensioned bridges, drilled shafts, caissons, and slip-form barriers[span_8](end_span). Transitioning into a dedicated NBIS focus to provide prime contractors and state DOTs with elite topside structural compliance oversight.</p>
+            <p>Civil Engineer and Lead Structural Inspector with over 16 years of experience in heavy highway and bridge infrastructure. Leveraging 12 years of hands-on structural carpentry alongside extensive Construction Engineering & Inspection (CEI) management, bringing an unparalleled, "dirt-level" understanding of structural anatomy to in-service bridge inspections. Expert in the evaluation, construction, and rehabilitation of complex concrete structures, including multi-span post-tensioned bridges, drilled shafts, caissons, and slip-form barriers. Transitioning into a dedicated NBIS focus to provide prime contractors and state DOTs with elite topside structural compliance oversight.</p>
 
+            <br>
             <h3>Structural Experience</h3>
             
             <div class="job-block">
                 <div class="job-title">Project Supervisor / Lead Structural Inspector</div>
                 <div class="company-name">CEI | Kingman, AZ</div>
                 <ul>
-                    [span_9](start_span)<li><strong>ADOT US-93/I-40 West Kingman Traffic Interchange ($106.5M):</strong> Serving as Project Supervisor overseeing the widening and rehabilitation of four major in-service bridges on I-40[span_9](end_span). [span_10](start_span)Managing nighttime structural inspections, coordinating closely with contractor personnel, and overseeing advanced traffic control setups on high-volume interstate corridors[span_10](end_span).</li>
-                    [span_11](start_span)[span_12](start_span)<li><strong>ADOT US 93 Cane Springs Corridor ($48.7M):</strong> Lead Inspector for the construction of two new three-span bridges and eight concrete box culverts as part of the future I-11 corridor[span_11](end_span)[span_12](end_span). [span_13](start_span)Conducting rigorous structural concrete inspections, verifying elevations, and ensuring all structural modifications conform strictly to ADOT bridge specifications[span_13](end_span).</li>
-                    [span_14](start_span)<li><strong>ADOT Centennial Wash Bridge Replacement ($13.7M):</strong> Lead Inspector managing the construction of a complex seven-span bridge founded on drilled shafts[span_14](end_span). [span_15](start_span)Overseeing CA&I services, ensuring the structural integrity of deep foundations and executing thorough QA/QC on all bridge components[span_15](end_span).</li>
+                    <li><strong>ADOT US-93/I-40 West Kingman Traffic Interchange ($106.5M):</strong> Serving as Project Supervisor overseeing the widening and rehabilitation of four major in-service bridges on I-40. Managing nighttime structural inspections, coordinating closely with contractor personnel, and overseeing advanced traffic control setups on high-volume interstate corridors.</li>
+                    <li><strong>ADOT US 93 Cane Springs Corridor ($48.7M):</strong> Lead Inspector for the construction of two new three-span bridges and eight concrete box culverts as part of the future I-11 corridor. Conducting rigorous structural concrete inspections, verifying elevations, and ensuring all structural modifications conform strictly to ADOT bridge specifications.</li>
+                    <li><strong>ADOT Centennial Wash Bridge Replacement ($13.7M):</strong> Lead Inspector managing the construction of a complex seven-span bridge founded on drilled shafts. Overseeing CA&I services, ensuring the structural integrity of deep foundations and executing thorough QA/QC on all bridge components.</li>
                 </ul>
             </div>
 
@@ -249,8 +292,8 @@
                 <div class="job-title">Lead Structures Inspector / Heavy Highway Contractor</div>
                 <div class="company-name">Kentucky Transportation Cabinet (KYTC) Projects</div>
                 <ul>
-                    [span_16](start_span)<li><strong>Bert T Combs Mountain Parkway Corridor Expansion:</strong> Served as the dedicated Structures Inspector for the construction of eight new twin post-tensioned bridges on a 4.16-mile high-speed corridor[span_16](end_span). Managed profiling of bridge decks and post-tension ducts, monitored shipping cables, and verified structural camber.</li>
-                    [span_17](start_span)<li><strong>Mount Sterling-Frenchburg Road (US-460):</strong> Led structural inspections for the erection of a new post-tensioned bridge over Beaver Creek[span_17](end_span). Monitored concrete placement, formwork, piling, and abutment construction, directly supporting the Resident Engineer in structural compliance.</li>
+                    <li><strong>Bert T Combs Mountain Parkway Corridor Expansion:</strong> Served as the dedicated Structures Inspector for the construction of eight new twin post-tensioned bridges on a 4.16-mile high-speed corridor. Managed profiling of bridge decks and post-tension ducts, monitored shipping cables, and verified structural camber.</li>
+                    <li><strong>Mount Sterling-Frenchburg Road (US-460):</strong> Led structural inspections for the erection of a new post-tensioned bridge over Beaver Creek. Monitored concrete placement, formwork, piling, and abutment construction, directly supporting the Resident Engineer in structural compliance.</li>
                     <li><strong>Structural Carpentry Foundation:</strong> Prior to CEI oversight, spent 12 years operating as a structural bridge carpenter, gaining invaluable field-level insight into structural load paths, material degradation, and concrete failure points.</li>
                 </ul>
             </div>
