@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerry Montgomery | Executive Resume</title>
+    <style>
+        :root {
+            --obsidian: #05080E;
+            --steel: #8A99AD;
+            --steel-light: #E0E5EC;
+            --amber-light: #FFC107;
+            --amber-dark: #FF7B00;
+        }
+        body {
+            background-color: #222;
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+        .resume-container {
+            width: 850px;
+            background-color: var(--obsidian);
+            color: var(--steel-light);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+            border-top: 6px solid var(--amber-light);
+            overflow: hidden;
+            position: relative;
+        }
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 40px 50px;
+            background: linear-gradient(135deg, #0a0f18 0%, #05080E 100%);
+            border-bottom: 1px solid #16223F;
+        }
+        .headshot-container {
+            flex-shrink: 0;
+            margin-right: 40px;
+        }
+        .headshot {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            /* These CSS filters programmatically clean up and sharpen your photo */
+            filter: contrast(1.15) brightness(1.05) saturate(1.1);
+            border: 3px solid transparent;
+            background: linear-gradient(to bottom right, var(--amber-light), var(--amber-dark)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .header-text {
+            flex-grow: 1;
+        }
+        h1 {
+            margin: 0 0 5px 0;
+            font-size: 38px;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        h2 {
+            margin: 0;
+            font-size: 18px;
+            color: var(--amber-light);
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 1.5px;
+        }
+        .contact-info {
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--steel);
+            display: flex;
+            gap: 20px;
+        }
+        /* Main Body Layout */
+        .content {
+            display: flex;
+            padding: 0;
+        }
+        .left-column {
+            width: 35%;
+            background-color: #080C16;
+            padding: 40px;
+            border-right: 1px solid #16223F;
+        }
+        .right-column {
+            width: 65%;
+            padding: 40px 50px;
+        }
+        /* Typography & Elements */
+        h3 {
+            color: #FFFFFF;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #16223F;
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        p, li {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--steel-light);
+        }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .job-title {
+            font-size: 15px;
+            color: #FFFFFF;
+            font-weight: bold;
+            margin: 0;
+        }
+        .company-name {
+            font-size: 13px;
+            color: var(--amber-light);
+            margin: 2px 0 10px 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .job-block {
+            margin-bottom: 30px;
+        }
+        .cert-item {
+            margin-bottom: 15px;
+        }
+        .cert-name {
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .cert-date {
+            color: var(--steel);
+            font-size: 11px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        /* Small Vector Graphic in bottom right */
+        .watermark {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+    <svg class="watermark" viewBox="0 0 100 100">
+        <polygon points="50,10 10,90 90,90" fill="#FFFFFF"/>
+    </svg>
+
+    <div class="header">
+        <div class="headshot-container">
+            <img src="headshot.jpg" alt="Jerry Montgomery" class="headshot">
+        </div>
+        <div class="header-text">
+            <h1>Jerry Montgomery</h1>
+            <h2>PRINCIPAL PE (CANDIDATE) | LEAD STRUCTURAL INSPECTOR</h2>
+            <div class="contact-info">
+                <span>KINGMAN, AZ / OPEN TO RELOCATION</span>
+                <span>NO-TRACE ENGINEERING LLC</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="left-column">
+            <h3>Certifications</h3>
+            
+            <div class="cert-item">
+                <div class="cert-name">Professional Engineer (PE)</div>
+                <div class="cert-date">In Progress (Exam Candidate)</div>
+            </div>
+            
+            <div class="cert-item">
+                <div class="cert-name">NHI 130055: Safety Inspection of In-Service Bridges</div>
+                <div class="cert-date">Targeted / In Progress</div>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-name">ATSSA Traffic Control Supervisor (TCS)</div>
+                <div class="cert-date">Exp. [span_0](start_span)11/2028[span_0](end_span)</div>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-name">ACI Field Testing Technician</div>
+                <div class="cert-date">Exp. [span_1](start_span)10/2029[span_1](end_span)</div>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-name">ATTI Field Testing Technician</div>
+                <div class="cert-date">Exp. [span_2](start_span)11/2029[span_2](end_span)</div>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-name">Erosion Control Coordinator (ECC)</div>
+                <div class="cert-date">Exp. [span_3](start_span)11/2027[span_3](end_span)</div>
+            </div>
+
+            <div class="cert-item">
+                <div class="cert-name">OSHA 10-Hour Construction Safety</div>
+                [span_4](start_span)<div class="cert-date">Active[span_4](end_span)</div>
+            </div>
+
+            <br><br>
+            <h3>Education</h3>
+            <div class="cert-item">
+                <div class="cert-name">BS, Civil Engineering</div>
+                [span_5](start_span)<div class="cert-date">University of Kentucky[span_5](end_span)</div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-name">AS, Pre-Engineering</div>
+                [span_6](start_span)<div class="cert-date">Big Sandy Community & Technical College[span_6](end_span)</div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <h3>Executive Summary</h3>
+            [span_7](start_span)<p>Civil Engineer and Lead Structural Inspector with over 16 years of experience in heavy highway and bridge infrastructure[span_7](end_span). Leveraging 12 years of hands-on structural carpentry alongside extensive Construction Engineering & Inspection (CEI) management, bringing an unparalleled, "dirt-level" understanding of structural anatomy to in-service bridge inspections. [span_8](start_span)Expert in the evaluation, construction, and rehabilitation of complex concrete structures, including multi-span post-tensioned bridges, drilled shafts, caissons, and slip-form barriers[span_8](end_span). Transitioning into a dedicated NBIS focus to provide prime contractors and state DOTs with elite topside structural compliance oversight.</p>
+
+            <h3>Structural Experience</h3>
+            
+            <div class="job-block">
+                <div class="job-title">Project Supervisor / Lead Structural Inspector</div>
+                <div class="company-name">CEI | Kingman, AZ</div>
+                <ul>
+                    [span_9](start_span)<li><strong>ADOT US-93/I-40 West Kingman Traffic Interchange ($106.5M):</strong> Serving as Project Supervisor overseeing the widening and rehabilitation of four major in-service bridges on I-40[span_9](end_span). [span_10](start_span)Managing nighttime structural inspections, coordinating closely with contractor personnel, and overseeing advanced traffic control setups on high-volume interstate corridors[span_10](end_span).</li>
+                    [span_11](start_span)[span_12](start_span)<li><strong>ADOT US 93 Cane Springs Corridor ($48.7M):</strong> Lead Inspector for the construction of two new three-span bridges and eight concrete box culverts as part of the future I-11 corridor[span_11](end_span)[span_12](end_span). [span_13](start_span)Conducting rigorous structural concrete inspections, verifying elevations, and ensuring all structural modifications conform strictly to ADOT bridge specifications[span_13](end_span).</li>
+                    [span_14](start_span)<li><strong>ADOT Centennial Wash Bridge Replacement ($13.7M):</strong> Lead Inspector managing the construction of a complex seven-span bridge founded on drilled shafts[span_14](end_span). [span_15](start_span)Overseeing CA&I services, ensuring the structural integrity of deep foundations and executing thorough QA/QC on all bridge components[span_15](end_span).</li>
+                </ul>
+            </div>
+
+            <div class="job-block">
+                <div class="job-title">Lead Structures Inspector / Heavy Highway Contractor</div>
+                <div class="company-name">Kentucky Transportation Cabinet (KYTC) Projects</div>
+                <ul>
+                    [span_16](start_span)<li><strong>Bert T Combs Mountain Parkway Corridor Expansion:</strong> Served as the dedicated Structures Inspector for the construction of eight new twin post-tensioned bridges on a 4.16-mile high-speed corridor[span_16](end_span). Managed profiling of bridge decks and post-tension ducts, monitored shipping cables, and verified structural camber.</li>
+                    [span_17](start_span)<li><strong>Mount Sterling-Frenchburg Road (US-460):</strong> Led structural inspections for the erection of a new post-tensioned bridge over Beaver Creek[span_17](end_span). Monitored concrete placement, formwork, piling, and abutment construction, directly supporting the Resident Engineer in structural compliance.</li>
+                    <li><strong>Structural Carpentry Foundation:</strong> Prior to CEI oversight, spent 12 years operating as a structural bridge carpenter, gaining invaluable field-level insight into structural load paths, material degradation, and concrete failure points.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
