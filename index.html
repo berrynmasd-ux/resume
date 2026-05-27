@@ -7,15 +7,17 @@
     <style>
         :root {
             --obsidian: #05080E;
+            --obsidian-light: #0A0F1A;
             --steel: #8A99AD;
             --steel-light: #E0E5EC;
             --amber-light: #FFC107;
             --amber-dark: #FF7B00;
+            --accent-line: #16223F;
         }
         body {
-            background-color: #222;
+            background-color: #111;
             margin: 0;
-            padding: 0; 
+            padding: 20px 0; 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -23,177 +25,213 @@
         }
         .resume-container {
             width: 100%;
-            max-width: 850px; 
+            max-width: 900px; 
             background-color: var(--obsidian);
             color: var(--steel-light);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.8);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
             border-top: 6px solid var(--amber-light);
             overflow: hidden;
             position: relative;
         }
-        /* Header Section */
+        
+        /* HEADER SECTION */
         .header {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            padding: 40px 50px;
-            background: linear-gradient(135deg, #0a0f18 0%, #05080E 100%);
-            border-bottom: 1px solid #16223F;
-        }
-        .headshot-container {
-            flex-shrink: 0;
-            margin-right: 30px;
-        }
-        .headshot {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            /* Auto-enhancement filter */
-            filter: contrast(1.15) brightness(1.05) saturate(1.1);
-            border: 3px solid transparent;
-            background: linear-gradient(to bottom right, var(--amber-light), var(--amber-dark)) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
-            mask-composite: exclude;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            justify-content: center;
+            text-align: center;
+            padding: 50px 50px;
+            background: linear-gradient(135deg, var(--obsidian-light) 0%, var(--obsidian) 100%);
+            border-bottom: 1px solid var(--accent-line);
         }
         .header-text {
-            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         h1 {
-            margin: 0 0 5px 0;
-            font-size: 36px;
+            margin: 0 0 8px 0;
+            font-size: 42px;
             color: #FFFFFF;
             letter-spacing: 2px;
             text-transform: uppercase;
+            font-weight: 800;
         }
         h2 {
             margin: 0;
             font-size: 16px;
             color: var(--amber-light);
             font-family: 'Courier New', Courier, monospace;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             line-height: 1.4;
+            font-weight: 600;
         }
         .contact-info {
-            margin-top: 15px;
-            font-size: 13px;
+            margin-top: 18px;
+            font-size: 14px;
             color: var(--steel);
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        /* Emblem Integration */
-        .emblem-container {
-            flex-shrink: 0;
-            margin-left: 30px;
-            display: flex;
+            gap: 15px;
             align-items: center;
-            justify-content: center;
+            flex-wrap: wrap;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
-        .emblem {
-            width: 120px; /* Size of the company logo */
-            height: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+        .contact-info .dot {
+            color: var(--amber-dark);
         }
 
-        /* Main Body Layout */
+        /* MAIN LAYOUT */
         .content {
             display: flex;
             padding: 0;
             flex-direction: row; 
         }
         .left-column {
-            width: 35%;
-            background-color: #080C16;
+            width: 32%;
+            background-color: var(--obsidian-light);
             padding: 40px;
-            border-right: 1px solid #16223F;
+            border-right: 1px solid var(--accent-line);
             box-sizing: border-box;
         }
         .right-column {
-            width: 65%;
+            width: 68%;
             padding: 40px 50px;
             box-sizing: border-box;
+            background-color: var(--obsidian);
         }
-        /* Typography & Elements */
+
+        /* TYPOGRAPHY & SECTIONS */
         h3 {
             color: #FFFFFF;
-            font-size: 16px;
+            font-size: 15px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 1px solid #16223F;
-            padding-bottom: 8px;
+            letter-spacing: 2.5px;
+            border-bottom: 2px solid var(--accent-line);
+            padding-bottom: 10px;
             margin-top: 0;
-            margin-bottom: 20px;
-        }
-        p, li {
-            font-size: 14px; 
-            line-height: 1.6;
-            color: var(--steel-light);
-        }
-        ul {
-            padding-left: 20px;
             margin-bottom: 25px;
+            position: relative;
         }
-        li {
-            margin-bottom: 10px;
+        h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--amber-light);
         }
-        .job-title {
-            font-size: 16px;
-            color: #FFFFFF;
-            font-weight: bold;
-            margin: 0;
+        p {
+            font-size: 14px; 
+            line-height: 1.7;
+            color: var(--steel-light);
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: justify;
         }
-        .company-name {
-            font-size: 14px;
-            color: var(--amber-light);
-            margin: 4px 0 10px 0;
-            font-family: 'Courier New', Courier, monospace;
+        
+        /* TIMELINE EXPERIENCE STYLES */
+        .timeline {
+            position: relative;
+            border-left: 2px solid var(--accent-line);
+            padding-left: 25px;
+            margin-left: 5px;
         }
         .job-block {
             margin-bottom: 35px;
+            position: relative;
         }
+        .job-block::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--obsidian);
+            border: 2px solid var(--amber-light);
+            box-shadow: 0 0 10px rgba(255, 193, 7, 0.4);
+        }
+        .job-title {
+            font-size: 17px;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            letter-spacing: 0.5px;
+        }
+        .company-name {
+            font-size: 13px;
+            color: var(--amber-light);
+            margin: 0 0 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        ul {
+            padding-left: 18px;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+        li {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--steel-light);
+            margin-bottom: 12px;
+        }
+        li strong {
+            color: #FFFFFF;
+        }
+
+        /* CERTIFICATION BADGES */
         .cert-item {
-            margin-bottom: 15px;
+            background-color: rgba(22, 34, 63, 0.4);
+            border: 1px solid var(--accent-line);
+            border-left: 3px solid var(--steel);
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            border-radius: 0 4px 4px 0;
+            transition: border-color 0.3s ease;
+        }
+        .cert-item.highlight {
+            border-left-color: var(--amber-light);
+            background-color: rgba(255, 193, 7, 0.03);
         }
         .cert-name {
             color: #FFFFFF;
-            font-weight: bold;
-            font-size: 14px;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 1.4;
         }
         .cert-date {
-            color: var(--steel);
-            font-size: 12px;
+            color: var(--amber-dark);
+            font-size: 11.5px;
             font-family: 'Courier New', Courier, monospace;
-            margin-top: 2px;
+            margin-top: 4px;
+            font-weight: bold;
         }
-        
-        /* =========================================
-           MOBILE RESPONSIVE MEDIA QUERIES
-           ========================================= */
+
+        /* MOBILE RESPONSIVE MEDIA QUERIES */
         @media screen and (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            .resume-container {
+                border-top: 4px solid var(--amber-light);
+            }
             .header {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 20px;
-            }
-            .headshot-container {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            .emblem-container {
-                margin-left: 0;
-                margin-top: 25px;
-            }
-            .emblem {
-                width: 100px;
+                padding: 40px 20px;
             }
             .contact-info {
                 justify-content: center;
+                gap: 8px;
                 flex-direction: column;
-                gap: 5px;
+            }
+            .contact-info .dot {
+                display: none;
             }
             .content {
                 flex-direction: column;
@@ -201,16 +239,18 @@
             .left-column, .right-column {
                 width: 100%;
                 border-right: none;
-                padding: 30px 20px;
+                padding: 35px 25px;
             }
             .left-column {
-                border-bottom: 1px solid #16223F;
+                border-bottom: 1px solid var(--accent-line);
             }
-            h1 {
-                font-size: 28px;
+            h1 { font-size: 32px; }
+            h2 { font-size: 13px; }
+            .timeline {
+                padding-left: 20px;
             }
-            h2 {
-                font-size: 14px;
+            .job-block::before {
+                left: -27px;
             }
         }
     </style>
@@ -219,32 +259,27 @@
 
 <div class="resume-container">
     <div class="header">
-        <div class="headshot-container">
-            <img src="IMG_5873.jpg" alt="Jerry Montgomery" class="headshot">
-        </div>
         <div class="header-text">
             <h1>Jerry Montgomery</h1>
             <h2>PRINCIPAL PE (CANDIDATE) | LEAD STRUCTURAL INSPECTOR</h2>
             <div class="contact-info">
                 <span>KINGMAN, AZ / OPEN TO RELOCATION</span>
+                <span class="dot">•</span>
                 <span>NO-TRACE ENGINEERING LLC</span>
             </div>
-        </div>
-        <div class="emblem-container">
-            <img src="IMG_5848.png" alt="No-Trace Engineering Emblem" class="emblem">
         </div>
     </div>
 
     <div class="content">
         <div class="left-column">
-            <h3>Certifications</h3>
+            <h3>Credentials</h3>
             
-            <div class="cert-item">
+            <div class="cert-item highlight">
                 <div class="cert-name">Professional Engineer (PE)</div>
                 <div class="cert-date">In Progress (Exam Candidate)</div>
             </div>
             
-            <div class="cert-item">
+            <div class="cert-item highlight">
                 <div class="cert-name">NHI 130055: Safety Inspection of In-Service Bridges</div>
                 <div class="cert-date">Targeted / In Progress</div>
             </div>
@@ -274,7 +309,7 @@
                 <div class="cert-date">Active</div>
             </div>
 
-            <br><br>
+            <br>
             <h3>Education</h3>
             <div class="cert-item">
                 <div class="cert-name">BS, Civil Engineering</div>
@@ -290,27 +325,28 @@
             <h3>Executive Summary</h3>
             <p>Civil Engineer and Lead Structural Inspector with over 16 years of experience in heavy highway and bridge infrastructure. Leveraging 12 years of hands-on structural carpentry alongside extensive Construction Engineering & Inspection (CEI) management, bringing an unparalleled, "dirt-level" understanding of structural anatomy to in-service bridge inspections. Expert in the evaluation, construction, and rehabilitation of complex concrete structures, including multi-span post-tensioned bridges, drilled shafts, caissons, and slip-form barriers. Transitioning into a dedicated NBIS focus to provide prime contractors and state DOTs with elite topside structural compliance oversight.</p>
 
-            <br>
             <h3>Structural Experience</h3>
             
-            <div class="job-block">
-                <div class="job-title">Project Supervisor / Lead Structural Inspector</div>
-                <div class="company-name">CEI | Kingman, AZ</div>
-                <ul>
-                    <li><strong>ADOT US-93/I-40 West Kingman Traffic Interchange ($106.5M):</strong> Serving as Project Supervisor overseeing the widening and rehabilitation of four major in-service bridges on I-40. Managing nighttime structural inspections, coordinating closely with contractor personnel, and overseeing advanced traffic control setups on high-volume interstate corridors.</li>
-                    <li><strong>ADOT US 93 Cane Springs Corridor ($48.7M):</strong> Lead Inspector for the construction of two new three-span bridges and eight concrete box culverts as part of the future I-11 corridor. Conducting rigorous structural concrete inspections, verifying elevations, and ensuring all structural modifications conform strictly to ADOT bridge specifications.</li>
-                    <li><strong>ADOT Centennial Wash Bridge Replacement ($13.7M):</strong> Lead Inspector managing the construction of a complex seven-span bridge founded on drilled shafts. Overseeing CA&I services, ensuring the structural integrity of deep foundations and executing thorough QA/QC on all bridge components.</li>
-                </ul>
-            </div>
+            <div class="timeline">
+                <div class="job-block">
+                    <div class="job-title">Project Supervisor / Lead Structural Inspector</div>
+                    <div class="company-name">CEI | Kingman, AZ</div>
+                    <ul>
+                        <li><strong>ADOT US-93/I-40 West Kingman Traffic Interchange ($106.5M):</strong> Serving as Project Supervisor overseeing the widening and rehabilitation of four major in-service bridges on I-40. Managing nighttime structural inspections, coordinating closely with contractor personnel, and overseeing advanced traffic control setups on high-volume interstate corridors.</li>
+                        <li><strong>ADOT US 93 Cane Springs Corridor ($48.7M):</strong> Lead Inspector for the construction of two new three-span bridges and eight concrete box culverts as part of the future I-11 corridor. Conducting rigorous structural concrete inspections, verifying elevations, and ensuring all structural modifications conform strictly to ADOT bridge specifications.</li>
+                        <li><strong>ADOT Centennial Wash Bridge Replacement ($13.7M):</strong> Lead Inspector managing the construction of a complex seven-span bridge founded on drilled shafts. Overseeing CA&I services, ensuring the structural integrity of deep foundations and executing thorough QA/QC on all bridge components.</li>
+                    </ul>
+                </div>
 
-            <div class="job-block">
-                <div class="job-title">Lead Structures Inspector / Heavy Highway Contractor</div>
-                <div class="company-name">Kentucky Transportation Cabinet (KYTC) Projects</div>
-                <ul>
-                    <li><strong>Bert T Combs Mountain Parkway Corridor Expansion:</strong> Served as the dedicated Structures Inspector for the construction of eight new twin post-tensioned bridges on a 4.16-mile high-speed corridor. Managed profiling of bridge decks and post-tension ducts, monitored shipping cables, and verified structural camber.</li>
-                    <li><strong>Mount Sterling-Frenchburg Road (US-460):</strong> Led structural inspections for the erection of a new post-tensioned bridge over Beaver Creek. Monitored concrete placement, formwork, piling, and abutment construction, directly supporting the Resident Engineer in structural compliance.</li>
-                    <li><strong>Structural Carpentry Foundation:</strong> Prior to CEI oversight, spent 12 years operating as a structural bridge carpenter, gaining invaluable field-level insight into structural load paths, material degradation, and concrete failure points.</li>
-                </ul>
+                <div class="job-block">
+                    <div class="job-title">Lead Structures Inspector / Heavy Highway Contractor</div>
+                    <div class="company-name">Kentucky Transportation Cabinet (KYTC) Projects</div>
+                    <ul>
+                        <li><strong>Bert T Combs Mountain Parkway Corridor Expansion:</strong> Served as the dedicated Structures Inspector for the construction of eight new twin post-tensioned bridges on a 4.16-mile high-speed corridor. Managed profiling of bridge decks and post-tension ducts, monitored shipping cables, and verified structural camber.</li>
+                        <li><strong>Mount Sterling-Frenchburg Road (US-460):</strong> Led structural inspections for the erection of a new post-tensioned bridge over Beaver Creek. Monitored concrete placement, formwork, piling, and abutment construction, directly supporting the Resident Engineer in structural compliance.</li>
+                        <li><strong>Structural Carpentry Foundation:</strong> Prior to CEI oversight, spent 12 years operating as a structural bridge carpenter, gaining invaluable field-level insight into structural load paths, material degradation, and concrete failure points.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
